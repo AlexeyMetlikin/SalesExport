@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryui")
+    @System.Web.Optimization.Styles.Render("~/bundles/style")
+    @System.Web.Optimization.Styles.Render("~/Content/themes/base/css")
+</head>
+<body>
+    <div id="header">
+        <div class="title">Sales Report</div>
+    </div>
+    <div id="content">
+        @RenderBody()
+        @RenderSection("scripts", false)
+        <div id="overlay"></div>
+        <div id="popup-panel-editor"></div>
+    </div>
+</body>
+</html>

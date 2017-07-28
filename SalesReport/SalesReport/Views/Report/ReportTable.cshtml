@@ -1,0 +1,72 @@
+﻿@model List<SalesReport.Models.Entities.OrderDetail>
+
+@if (TempData["message"] != null)
+{
+    <div class="action-result-message">@TempData["message"]</div>
+}
+
+@if (Model.Count > 0)
+{
+    <h2>@ViewBag.reportName</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => Model.FirstOrDefault().OrderID)
+                </td>                
+                <td>
+                    @Html.LabelFor(m => Model.FirstOrDefault().Order.OrderDate)
+                </td>
+                <td>
+                    @Html.LabelFor(m => Model.FirstOrDefault().ProductID)
+                </td>
+                <td>
+                    @Html.LabelFor(m => Model.FirstOrDefault().Product.Name)
+                </td>
+                <td>
+                    @Html.LabelFor(m => Model.FirstOrDefault().Quantity)
+                </td>
+                <td>
+                    @Html.LabelFor(m => Model.FirstOrDefault().UnitPrice)
+                </td>
+                <td>
+                    @Html.LabelFor(m => Model.FirstOrDefault().Discount)
+                </td>
+                <td>
+                    @Html.Label("Итоговая сумма")
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sale in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(s => sale.OrderID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(s => sale.Order.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(s => sale.ProductID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(s => sale.Product.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(s => sale.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(s => sale.UnitPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(s => sale.Discount)
+                    </td>
+                    <td>
+                        @(String.Format("{0:0.00}", sale.Quantity * (sale.UnitPrice * (1 - decimal.Parse(sale.Discount.ToString())))))
+                    </td>
+                </tr>
+            }        
+        </tbody>
+    </table>
+}

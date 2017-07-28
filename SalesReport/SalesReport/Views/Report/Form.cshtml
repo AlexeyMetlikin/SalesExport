@@ -1,0 +1,52 @@
+﻿@model SalesReport.Models.ViewModel.ReportViewModel
+
+@{
+    ViewBag.Title = "Form";
+}
+
+@using (Ajax.BeginForm("SendReport", null,
+        new AjaxOptions
+        {
+            Url = Url.Action("SendReport"),
+            UpdateTargetId = "report-table",
+            LoadingElementId = "loading",
+            LoadingElementDuration = 2000
+        }, new { @class = "send-report-form" }))
+{
+    <fieldset>
+        <legend>Формирование отчета по заказам</legend>
+        @Html.ValidationSummary(false)
+
+        <div class="report-period">
+            <label>Период:</label>
+            <div class="period-from-to">
+                @Html.Label("c")
+                @Html.TextBox("PeriodFrom", Model.PeriodFrom.ToShortDateString(), new { @class = "date-period" })
+            </div>
+
+            <div class="period-from-to">
+                @Html.Label("по")
+                @Html.TextBox("PeriodTo", Model.PeriodTo.ToShortDateString(), new { @class = "date-period" })
+            </div>
+        </div>
+
+        <div class="report-address">
+            @Html.LabelFor(m => m.EmailMessage.To)
+            @Html.EditorFor(m => m.EmailMessage.To)
+        </div>
+
+        <input class="send-report" type="submit" value="Сформировать отчет" />
+    </fieldset>
+}
+
+<div id="loading"></div>
+
+<div id="report-table">
+    @Html.Partial("ReportTable", new List<SalesReport.Models.Entities.OrderDetail>())
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryajax")
+    @Scripts.Render("~/bundles/jqueryval")  
+    @Scripts.Render("~/bundles/myscripts")  
+}

@@ -1,0 +1,127 @@
+﻿body {
+    margin-left: 0;
+    font: 16px Cambria, Georgia, "Times New Roman";
+}
+
+div#header { 
+  background-color: #1a015a;
+  border-bottom: 2px solid #111; 
+  color: White; 
+  height: 3.5em;
+} 
+
+div.title {
+    padding: .4em 0 0 .2em;
+    font: 2.7em/.5em PTSans,Times New Roman,sans-serif;
+}
+
+div#content {
+    margin-left: 10px;
+}
+ 
+form.send-report-form {
+    width: 460px;
+    font: 1.05em PTSans,Times New Roman,sans-serif;
+    margin: 10px 5px;
+}
+
+form.send-report-form label{
+    font-weight: 600;
+}
+
+form.send-report-form div{
+    margin-top: 10px;
+}
+
+.report-period > label {
+    display: block;
+}
+
+div.period-from-to {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+div.period-from-to input {
+    margin: 0 10px 0 5px;
+    display: inline-block;
+    text-align: center;
+    font: 1.05em PTSans,Times New Roman,sans-serif;
+    width: 170px;
+}
+
+div.report-address, div.period-from-to {
+    margin-bottom: 10px;
+}
+
+div.report-address input {
+    display: block;
+    font: 1.05em PTSans,Times New Roman,sans-serif;
+    width: 400px;
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
+input.send-report {
+    margin: 10px;
+    float: right;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: #464e82;
+    color: white;
+    cursor: pointer;
+}
+
+div#report-table > table {
+    border: 1px solid;
+    margin: 10px;
+}
+
+div#report-table td {
+    border: 1px solid;
+    text-align: center;
+}
+
+div#report-table thead td {
+    background-color: #73d416;
+}
+
+input {
+    border-radius: 4px;
+}
+
+div#loading {
+    background: url(../../Content/images/loader.gif) no-repeat center;
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+
+/* Ошибки при валидации */
+.field-validation-error {
+    color: #b94a48;
+}
+ 
+.field-validation-valid {
+    display: none;
+}
+ 
+.input-validation-error {
+    border: 1px solid #b94a48;
+}
+ 
+.validation-summary-errors {
+    color: #b94a48;
+}
+ 
+.validation-summary-valid {
+    display: none;
+}
+
+/* сообщение о результате действий */
+.action-result-message {
+    color: red;
+    padding: 5px 0 10px 0;
+    font: 18px/20px PTSans,Times New Roman,sans-serif;
+}
